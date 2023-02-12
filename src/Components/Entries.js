@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Entry from "./Entry";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function Entries() {
   const [entries, setEntries] = useState([]);
@@ -19,9 +20,13 @@ export default function Entries() {
     <div>
       <h1>List of Thankful Entries</h1>
       <p>Thank YOU for showing gratitude</p>
-      {entries.map((entry) => {
-        return <Entry key={entry.id} entry={entry} />;
-      })}
+      <Container>
+        <Row>
+          {entries.map((entry) => {
+            return <Entry key={entry.id} entry={entry} />;
+          })}
+        </Row>
+      </Container>
     </div>
   );
 }
