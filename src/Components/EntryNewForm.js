@@ -18,10 +18,28 @@ export default function EntryNewForm() {
     photo_url: "",
   });
 
-  const addEntry = () => {};
+  let navigate = useNavigate();
+
+  const handleTextChange = (event) => {
+    setEntry({ ...entry, [event.target.id]: event.target.value });
+  };
+
+  const handleCheckboxChange = () => {
+    setEntry({ ...entry, is_favorite: !entry.is_favorite });
+  };
+
+  const addEntry = (newEntry) => {
+    axios
+      .post(`${API}/entries`, newEntry)
+      .then(() => {
+        navigate(`/entries`);
+      })
+      .catch((e) => console.warn("catch", e));
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    addEntry();
+    addEntry(entry);
   };
 
   return (
@@ -30,17 +48,34 @@ export default function EntryNewForm() {
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="name">
           <Form.Label>Your Name*</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" />
+          <Form.Control
+            type="text"
+            placeholder="Enter name"
+            value={entry.name}
+            onChange={handleTextChange}
+            required
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="date">
           <Form.Label>Today's Date*</Form.Label>
-          <Form.Control type="text" placeholder="mm/dd/yyyy" />
+          <Form.Control
+            type="text"
+            placeholder="mm/dd/yyyy"
+            value={entry.date}
+            onChange={handleTextChange}
+            required
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="person">
           <Form.Label>Person you are grateful for:</Form.Label>
-          <Form.Control type="text" placeholder="Person's name" />
+          <Form.Control
+            type="text"
+            placeholder="Person's name"
+            value={entry.person}
+            onChange={handleTextChange}
+          />
           <Form.Text className="text-muted">
             Name of someone you really appreciate.
           </Form.Text>
@@ -48,19 +83,34 @@ export default function EntryNewForm() {
 
         <Form.Group className="mb-3" controlId="place">
           <Form.Label>Place you appreciate:</Form.Label>
-          <Form.Control type="text" placeholder="Enter place" />
+          <Form.Control
+            type="text"
+            placeholder="Enter place"
+            value={entry.place}
+            onChange={handleTextChange}
+          />
           <Form.Text className="text-muted">Place you appreciate.</Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="thing">
           <Form.Label>Enter something you appreciate:</Form.Label>
-          <Form.Control type="text" placeholder="Enter thing" />
+          <Form.Control
+            type="text"
+            placeholder="Enter thing"
+            value={entry.thing}
+            onChange={handleTextChange}
+          />
           <Form.Text className="text-muted">Thing you appreciate.</Form.Text>
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="mood">
           <Form.Label>Today's Mood:</Form.Label>
-          <Form.Control type="number" placeholder="1-10" />
+          <Form.Control
+            type="number"
+            placeholder="1-10"
+            value={entry.mood}
+            onChange={handleTextChange}
+          />
           <Form.Text className="text-muted">
             Rate your mood today on a scale from 1-10.
           </Form.Text>
@@ -68,7 +118,12 @@ export default function EntryNewForm() {
 
         <Form.Group className="mb-3" controlId="notes">
           <Form.Label>Today's Journal:</Form.Label>
-          <Form.Control type="text" placeholder="notes" />
+          <Form.Control
+            type="text"
+            placeholder="notes"
+            value={entry.notes}
+            onChange={handleTextChange}
+          />
           <Form.Text className="text-muted">
             Express gratitude. Write about what you are grateful for today.
           </Form.Text>
@@ -76,7 +131,12 @@ export default function EntryNewForm() {
 
         <Form.Group className="mb-3" controlId="photo_url">
           <Form.Label>Photo URL:</Form.Label>
-          <Form.Control type="text" placeholder="photo url" />
+          <Form.Control
+            type="text"
+            placeholder="photo url"
+            value={entry.photo_url}
+            onChange={handleTextChange}
+          />
           <Form.Text className="text-muted">
             Add the url of a photo that reminds you of what you are grateful
             for.
@@ -84,7 +144,12 @@ export default function EntryNewForm() {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="is_favorite">
-          <Form.Check type="checkbox" label="Add entry to list of favorites" />
+          <Form.Check
+            type="checkbox"
+            label="Add entry to list of favorites"
+            value={entry.is_favorite}
+            onChange={handleCheckboxChange}
+          />
         </Form.Group>
 
         <Button variant="primary" type="submit">

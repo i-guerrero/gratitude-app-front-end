@@ -20,7 +20,7 @@ export default function EntryDetails() {
       .catch((error) => {
         console.log(error);
       });
-  }, [id]);
+  }, [id, API]);
 
   const deleteEntry = () => {
     axios.delete(`${API}/entries/${id}`)
