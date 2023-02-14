@@ -9,7 +9,7 @@ export default function Home() {
         <h1>Welcome to the Gratitude App</h1>
         <p>This is a gratitude journal.</p>
         <Link to="/entries">
-          <Button variant="dark">View List of Journal Entries</Button>
+          <Button variant="dark">View List of Journal Entries!</Button>
         </Link>
       </Container>
     </div>
