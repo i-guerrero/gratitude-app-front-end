@@ -31,7 +31,7 @@ export default function EntryEditForm() {
         (error) => navigate(`/not-found`)
       )
       .catch((e) => console.warn("catch", e));
-  }, [id, API]);
+  }, [id, navigate]);
 
   const handleTextChange = (event) => {
     setEntry({ ...entry, [event.target.id]: event.target.value });
