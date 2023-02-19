@@ -19,3 +19,7 @@ code {
 .blue {
   color: blue;
 }
+
+.italic {
+  font-weight: italic;
+}

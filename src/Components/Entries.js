@@ -19,7 +19,7 @@ export default function Entries() {
   return (
     <div>
       <h1>List of Thankful Entries</h1>
-      <p>Thank YOU for showing gratitude</p>
+      <p>Thank YOU for showing gratitude ❤️</p>
       <Container>
         <Row>
           {entries.map((entry) => {

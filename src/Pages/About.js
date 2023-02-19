@@ -38,6 +38,25 @@ export default function About() {
         also a note section for users to log things they love about themselves
         and something they were grateful for that day.
       </p>
+      <h2>User Stories:</h2>
+      <ul>
+        <li>
+          As a user, I can create a journal entry, so that I can show gratitude
+          to myself, things in my life, or others.
+        </li>
+        <li>
+          As a user, I can update a journal entry, so that I can add something
+          that comes to mind later in the day.
+        </li>
+        <li>
+          As a user, I can see all the journal entries, so that I can see all
+          that I am thankful for.
+        </li>
+        <li>
+          As a user, I can delete an entry, in case I made a mistake and want to
+          start over.
+        </li>
+      </ul>
     </Container>
   );
 }

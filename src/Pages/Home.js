@@ -9,6 +9,7 @@ export default function Home() {
         <h1>
           Welcome to the <span className="blue">Thankful Gratitude App</span>
         </h1>
+        <h3 className="italic">Making gratitude a daily part of our lives.</h3>
         <p>This is your gratitude journal ❤️.</p>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRR_EdjUMsSxI0bRVUvnGUuJUPw5LZMQzClNw&usqp=CAU"
