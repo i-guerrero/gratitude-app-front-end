@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
 export default function EntryDetails() {
   const [entry, setEntry] = useState([]);
@@ -38,6 +38,16 @@ export default function EntryDetails() {
 
   return (
     <div>
+        <Container>
+            <Row>
+                <Col><Button variant="primary" onClick={() => navigate(`/entries`)}>⬅️ Back</Button></Col>
+                <Col><Button variant="dark" onClick={() => navigate(`/entries/${id}/edit`)}>✏️ Edit</Button></Col>
+                <Col><Button variant="danger" onClick={handleDelete}>🗑 Delete</Button></Col>
+                
+                
+            </Row>
+        </Container>
+      
       <h2>Thankful Entry #{entry.id} {entry.is_favorite ? "- ⭐️" : null}</h2>
       <Container>
       <p>Name: {entry.name}</p>
@@ -52,9 +62,9 @@ export default function EntryDetails() {
       </Container>
       {entry.notes ? <div><h3>Today's journal entry:</h3><Container><p>{entry.notes}</p></Container></div> : null}
       {entry.photo_url ? <Image src={entry.photo_url} fluid rounded /> : null}
-      <Button variant="dark" onClick={() => navigate(`/entries`)}>Back</Button>
-      <Button variant="dark" onClick={() => navigate(`/entries/${id}/edit`)}>Edit</Button>
-      <Button variant="dark" onClick={handleDelete}>Delete</Button>
+      <Button variant="primary" onClick={() => navigate(`/entries`)}>⬅️ Back</Button>
+      <Button variant="dark" onClick={() => navigate(`/entries/${id}/edit`)}>✏️ Edit</Button>
+      <Button variant="danger" onClick={handleDelete}>🗑 Delete</Button>
     </div>
   );
 }
