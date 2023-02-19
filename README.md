@@ -1,4 +1,16 @@
-# Getting Started with Create React App
+# Welcome to the Thankful Gratitude App
+
+Here is the link to the deployed [front-end application](https://thankful-gratitude-app.netlify.app/) and [back-end API](https://dark-fog-6891.fly.dev).
+
+To install application locally, fork and clone this project and run `npm install`.
+
+Create a .env file with the variable "REACT_APP_API_URL=https://dark-fog-6891.fly.dev". This will link your front-end to the backend.
+
+The repo for the back-end is [here](https://github.com/i-guerrero/gratitude-app-back-end).
+
+
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
