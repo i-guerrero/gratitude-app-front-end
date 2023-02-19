@@ -6,7 +6,10 @@ export default function About() {
       <h1>
         About the <span className="blue">Thankful Gratitude App</span>
       </h1>
-      <img src="https://www.poshmn.com/wp-content/uploads/2018/11/thankful-1036x479.jpg"></img>
+      <img
+        src="https://www.poshmn.com/wp-content/uploads/2018/11/thankful-1036x479.jpg"
+        alt="thankful"
+      ></img>
       <p>
         In a 2003 study, researchers compared the well-being of participants who
         kept a weekly list of things they were grateful for with participants
